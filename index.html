@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Cuite</title>
+  <style>
+    @font-face {
+      font-family: valentineFont;
+      src: url(loveya.script-regular.ttf);
+    }
+
+    body {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url(6538907.jpg);
+      font-family: valentineFont;
+      font-size: 2em;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .main-box {
+      justify-items: center;
+      align-items: center;
+      color: rgb(238, 58, 58);
+      background-color: transparent;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .button-box {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    button, .yes-button , .no-button {
+      background-color: pink;
+      border: 3px solid red;
+      border-radius: 20%;
+      color: red;
+      font-family: valentineFont;
+      font-size: 1.2em;
+      font-weight: 400;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Smooth scaling transition */
+      flex-shrink: 0; /* Prevent shrinking */
+      min-width: 100px;
+    }
+
+    .heart {
+      font-size: 4em;
+    }
+
+    /* Media Query for Mobile Devices */
+    @media (max-width: 768px) {
+      body {
+        font-size: 1.5em;
+      }
+
+      .main-box {
+        padding: 20px;
+      }
+
+      .button-box {
+        flex-direction: row; /* Ensure buttons stay side by side */
+        gap: 10px;
+      }
+
+      button, .yes-button , .no-button {
+        font-size: 1em;
+        min-width: 80px;
+      }
+
+      .heart {
+        font-size: 3em;
+      }
+
+      .head-text {
+        font-size: 1.5em;
+      }
+    }
+
+    /* Media Query for very small screens (e.g., phones in portrait mode) */
+    @media (max-width: 480px) {
+      body {
+        font-size: 1.2em;
+      }
+
+      .button-box {
+        gap: 5px;
+      }
+
+      button, .yes-button , .no-button {
+        font-size: 0.9em;
+        min-width: 70px;
+      }
+
+      .heart {
+        font-size: 2.5em;
+      }
+
+      .head-text {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-box">
+    <h1 class="head-text">Will you be my Valentine ?</h1>
+    <div class="button-box">
+      <button class="yes-button" onclick="button('yes')">Yes</button>
+      <button class="no-button" onclick="button('no')">No</button>
+    </div>
+  </div>
+
+  <script>
+    function button(option) {
+      // Check which option was clicked
+      if (option === 'yes') {
+        document.querySelector(".head-text")
+          .textContent="I love you My Maniya, My cutie, My Everything";
+        document.querySelector(".button-box")
+          .innerHTML='<i class="fa-solid fa-heart heart"></i>';
+      } else if (option === 'no') {
+        document.querySelector('.no-button')
+          .textContent = 'You sure?';
+        let yesButton = document.querySelector('.yes-button');
+        let currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
+        let newSize = parseFloat(currentFontSize) * 2;
+        yesButton.style.fontSize = newSize + 'px';
+      } else {
+        alert('Invalid option!');
+      }
+    }
+  </script>
+</body>
+</html>
